@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { MultiSelectDropdown } from "./components/MultiSelectDropdown";
+import { MultiSelectDropdown } from "./components/MultiSelectDropDown/MultiSelectDropdown";
+import { MockOptions } from "./constants/Mocks/mockOptions";
 import './App.scss';
 
 function App() {
@@ -12,8 +13,10 @@ function App() {
   return (
     <div className="App">
         <div>
-            <MultiSelectDropdown options={['Option 1', 'Option 2', 'Option 3']} onChange={handleMultiSelectChange} />
-            <p>Selected Items: {selectedItems.join(', ')}</p>
+            <strong>Selected Items: {selectedItems.join(', ')}</strong>
+        </div>
+        <div>
+            <MultiSelectDropdown options={MockOptions} onChange={handleMultiSelectChange} />
         </div>
     </div>
   );
