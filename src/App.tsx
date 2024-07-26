@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { MultiSelectDropdown } from "./components/MultiSelectDropdown";
+import './App.scss';
 
 function App() {
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+  const handleMultiSelectChange = (selected: string[]) => {
+      setSelectedItems(selected);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div>
+            <MultiSelectDropdown options={['Option 1', 'Option 2', 'Option 3']} onChange={handleMultiSelectChange} />
+            <p>Selected Items: {selectedItems.join(', ')}</p>
+        </div>
     </div>
   );
 }
